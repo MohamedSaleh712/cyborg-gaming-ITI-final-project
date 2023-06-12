@@ -23,15 +23,15 @@ pipeline {
             steps {
                 script {
                     echo 'deploy to the cluster'
-//                     withCredentials([file(credentialsId: 'kubeconfig_cred', variable: 'KUBECONFIG_ITI')]) {
+                    withCredentials([file(credentialsId: 'kubeconfig_cred', variable: 'KUBECONFIG_ITI')]) {
                             sh '''
                                 export BUILD_NUMBER=$(cat ../build_num.txt)
                                 mv deployments/deploy.yaml deployments/deploy.yaml.tmp
                                 cat deployments/deploy.yaml.tmp | envsubst > deployments/deploy.yaml
                                 rm -rf deployments/deploy.yaml.tmp
-                                kubectl apply -f ./deployments
+                                kubectl apply -f deployments --kubeconfig ${KUBECONFIG_ITI}
                             '''
-//                         }
+                        }
                 }
             }
         }
