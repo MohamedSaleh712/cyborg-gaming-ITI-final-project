@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyborg-gaming-app
+spec:
+  selector:
+    matchLabels:
+      app: cyborg-gaming-app
+  template:
+    metadata:
+      labels:
+        app: cyborg-gaming-app
+    spec:
+      containers:
+      - name: cyborg-gaming-app
+        image:
+        ports:
+        - containerPort: 80
