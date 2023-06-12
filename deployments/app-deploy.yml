@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: cyborg-gaming-app
-        image:
+        image: cyborg-gaming-app:1.0.0
         ports:
         - containerPort: 80
