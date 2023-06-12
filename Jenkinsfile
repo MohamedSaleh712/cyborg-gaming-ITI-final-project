@@ -29,7 +29,7 @@ pipeline {
                                 mv deployments/deploy.yaml deployments/deploy.yaml.tmp
                                 cat deployments/deploy.yaml.tmp | envsubst > deployments/deploy.yaml
                                 rm -rf deployments/deploy.yaml.tmp
-                                kubectl apply -f deployments
+                                kubectl apply -f ./deployments
                             '''
 //                         }
                 }
